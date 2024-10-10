@@ -1,0 +1,48 @@
+.mat-toolbar {
+    width: auto;
+    margin-bottom: 10px;
+    background-color: #913294;
+    color: #fff;
+}
+
+.title-center {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+mat-form-field {
+    padding: 5px;
+}
+
+mat-label, mat-error {
+    color: #1f1f1f;
+}
+
+mat-dialog-actions {
+    button {
+        width: 6.5em;
+        height: 2.5em;
+        color: #fff;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        background-color: #913294;
+
+        border: none;
+        border-radius: 5px;
+        transition: all ease-in-out .3s;
+
+    }
+
+    button:hover {
+        background-color: #bc41c0;
+        cursor: pointer;
+    }
+
+    .dialog-signup-button {
+        margin-right: 10px;
+    }
+
+    .dialog-close-button {
+        margin-left: 10px;
+    }
+}
