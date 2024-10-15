@@ -28,11 +28,7 @@ VALUES
     ('Cliente 2', '456789123', 'cliente2@gmail.com', 'cliente2', 'true', 'user'),
     ('Cliente 3', '321654987', 'cliente3@gmail.com', 'cliente3', 'true', 'user'),
     ('Cliente 4', '852963741', 'cliente4@gmail.com', 'cliente4', 'true', 'user'),
-    ('Cliente 5', '789456123', 'cliente5@gmail.com', 'cliente5', 'true', 'user'),
-    ('Cliente 6', '159753486', 'cliente6@gmail.com', 'cliente6', 'true', 'user'),
-    ('Cliente 7', '753951852', 'cliente7@gmail.com', 'cliente7', 'true', 'user'),
-    ('Cliente 8', '951753852', 'cliente8@gmail.com', 'cliente8', 'true', 'user'),
-    ('Cliente 9', '147258369', 'cliente9@gmail.com', 'cliente9', 'true', 'user');
+    ('Cliente 5', '789456123', 'cliente5@gmail.com', 'cliente5', 'true', 'user');
 
 
 

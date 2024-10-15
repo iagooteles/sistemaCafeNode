@@ -6,6 +6,7 @@ import { SignupComponent } from '../signup/signup.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { HttpClientModule } from '@angular/common/http';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 
 @Component({
   selector: 'app-home',
@@ -31,6 +32,16 @@ export class HomeComponent {
       const dialogConfig = new MatDialogConfig();
       dialogConfig.width = "550px";
       this.dialog.open(SignupComponent, dialogConfig);
+    } catch (error) {
+      console.log(error + "... erro ao abrir o modal");
+    }
+  }
+
+  forgotPasswordAction() {
+    try {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.width = "550px";
+      this.dialog.open(ForgotPasswordComponent, dialogConfig);
     } catch (error) {
       console.log(error + "... erro ao abrir o modal");
     }
