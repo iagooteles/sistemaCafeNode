@@ -1,17 +1,24 @@
 <div class="bg-image"></div>
 <app-best-seller></app-best-seller>
 
-
 <div class="wrapper sticky">
   <nav class="navbar-fixed-top">
     <a href="#" class="logo">
-      <mat-icon>storefront</mat-icon> Cafe Management System
+      <mat-icon>storefront</mat-icon>
+      <span class="navbar-text">Cafe Management System</span>
     </a>
-    <ul>
+
+    <a href="#" class="burger-menu-icon" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </a>
+
+    <ul [class.show]="isMenuOpen">
+      <li><a class="login-button-navbar" (click)="loginAction()">Login</a></li>
       <li><a class="signup-button-navbar" (click)="signupAction()">Signup</a></li>
       <li><a class="forgotPassword-button-navbar" (click)="forgotPasswordAction()" >Forgot Password</a></li>
     </ul>
   </nav>
 </div>
+
 
 <app-footer></app-footer>

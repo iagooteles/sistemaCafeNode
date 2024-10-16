@@ -7,6 +7,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-home',
@@ -16,16 +17,18 @@ import { ForgotPasswordComponent } from '../forgot-password/forgot-password.comp
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  isMenuOpen = false;
 
-  constructor(private dialog: MatDialog, private ngxLoader: NgxUiLoaderService) { }
+  constructor(private dialog: MatDialog) { }
 
-  // ngOnInit() {
-  //   this.ngxLoader.start();
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
 
-  //   setTimeout(() => {
-  //     this.ngxLoader.stop();
-  //   }, 3000);
-  // }
+    const menu = document.querySelector('ul');
+    if (menu) {
+      menu.classList.toggle('show');
+    }
+  }
 
   signupAction() { 
     try {
@@ -42,6 +45,16 @@ export class HomeComponent {
       const dialogConfig = new MatDialogConfig();
       dialogConfig.width = "550px";
       this.dialog.open(ForgotPasswordComponent, dialogConfig);
+    } catch (error) {
+      console.log(error + "... erro ao abrir o modal");
+    }
+  }
+
+  loginAction() {
+    try {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.width = "550px";
+      this.dialog.open(LoginComponent, dialogConfig);
     } catch (error) {
       console.log(error + "... erro ao abrir o modal");
     }
