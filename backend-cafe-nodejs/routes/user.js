@@ -67,7 +67,7 @@ router.post("/login", (req, res) => {
           .json({ message: "Incorrect username or password." });
       }
       if (results[0].status === "false") {
-        return res.status(401).json({ message: "Wait for admin approval" });
+        return res.status(401).json({ message: "Esperando pela aprovação do administrador." });
       }
       if (results[0].password === user.password) {
         const response = { email: results[0].email, role: results[0].role };

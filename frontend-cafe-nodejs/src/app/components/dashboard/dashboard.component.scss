@@ -1,0 +1,278 @@
+// LIMPAR ESSE CSS
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #913294;
+}
+
+.dashboard {
+  padding-top: 10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+mat-card {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  width: 665px;
+  text-align: center;
+}
+
+mat-card span {
+  font-size: 1.8em;
+}
+
+nav {
+  display: flex;
+  width: 90%;
+}
+
+ul li a {
+  margin-left: 1.5em;
+}
+
+a.logo {
+  margin-right: auto;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  font-size: 1.25em;
+}
+
+a::after {
+  content: "";
+  top: 100%;
+  border-bottom: 2px solid #fff;
+  transition: all 0.35s;
+  position: absolute;
+}
+
+a:hover::after {
+  transition: all 0.35s;
+}
+
+a::after {
+  right: 50%;
+  left: 50%;
+}
+
+a:hover::after {
+  right: 0;
+  left: 0;
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    height: auto;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  a.logo {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    margin-right: 0px;
+  }
+
+  ul {
+    width: 100%;
+    margin-bottom: 1em;
+    justify-content: space-between;
+  }
+
+  ul li a {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  a.logo {
+    margin: 1.5em;
+  }
+
+  ul {
+    flex-direction: column;
+  }
+
+  ul li {
+    margin: 0.3em;
+    text-align: center;
+  }
+
+  ul li a {
+    margin-left: 0px;
+  }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+}
+
+// burger menu
+.burger-menu-icon {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  
+  mat-card {
+    width: 75%;
+  }
+
+  .burger-menu { 
+    display: none;
+    padding: 30px 10px 5px 10px;
+    width: 250px !important;
+  }
+
+  ul {
+    flex-direction: column;
+    background-color: #913294;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  ul.show {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  ul li {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+
+    transition: all 0.3s ease-in-out;
+  }
+
+  .navbar-text {
+    display: none;
+  }
+
+  ul.show {
+    display: flex;
+  }
+
+  .burger-menu-icon {
+    display: block;
+    margin: 1.5em;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  .navbar-fixed-top {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+.card-container {
+  display: flex;
+  gap: 30px;
+
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  padding: 20px;
+  border: 1px #913294 solid;
+  border-radius: 10px;
+  min-height: 200px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.card h1 {
+  font-size: 2em;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+
+.card {
+  button {
+    width: 90%;
+    height: 2.5em;
+    color: #fff;
+    font-size: 1em;
+    background-color: #913294;
+
+    
+    border: none;
+    border-radius: 5px;
+    transition: all ease-in-out 0.3s;
+  }
+
+  button:hover {
+    background-color: #bc41c0;
+    cursor: pointer;
+  }
+}
+
+.burger-menu {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+}
+
+.burger-menu li a {
+  cursor: pointer;
+}
+
+.icon-text-burger-container mat-icon {
+  margin-bottom: -5px;
+  margin-right: 10px;
+}

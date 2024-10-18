@@ -1,0 +1,22 @@
+<div class="burger-menu" (click)="toggleSidebar()">
+  <mat-icon>menu</mat-icon>
+</div>
+
+<mat-nav-list appAccordion class="sidebar" [class.open]="isSidebarOpen">
+  <mat-list-item
+    class="sidebar-item-container"
+    appAccordionLink
+    *ngFor="let menuItem of menuItens.getMenuItem()"
+    routerLinkActive="selected"
+  >
+    <a
+      appAccordionToggle
+      [routerLink]="['/cafe', menuItem.state]"
+      *ngIf="menuItem.role === '' || menuItem.role === tokenPayload.role"
+    >
+      <mat-icon class="icon-sidebar">{{ menuItem.icon }}</mat-icon>
+      <span>{{ menuItem.name }}</span>
+      <span FxFlex></span>
+    </a>
+  </mat-list-item>
+</mat-nav-list>

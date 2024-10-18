@@ -1,5 +1,7 @@
 export class GlobalConstants {
-    public static genericError:string = "Something went wrong. Please try again later.";
+    public static genericError:string = "Algo deu errado. Tente novamente depois.";
+
+    public static unauthorized:string = "Você não está autorizado a acessar esta página.";
 
     public static nameRegex:string = "[a-zA-Z0-9 ]*";
 

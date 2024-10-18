@@ -1,1 +1,58 @@
-<p>dashboard works!</p>
+<section class="dashboard">
+  <mat-card>
+    <b><span>Dashboard</span></b>
+  </mat-card>
+
+  <br />
+
+  <div class="card-container">
+    <div class="card">
+      <h2 class="title">Categorias:</h2>
+      <h1 class="title">{{ data?.category }}</h1>
+      <button class="button" [routerLink]="['/cafe/category']">
+        Ver Categorias
+      </button>
+    </div>
+
+    <div class="card">
+      <h2 class="title">Produtos:</h2>
+      <h1 class="title">{{ data?.product }}</h1>
+      <button class="button" [routerLink]="['/cafe/product']">
+        Ver Produtos
+      </button>
+    </div>
+
+    <div class="card">
+      <h2 class="title">Contas:</h2>
+      <h1 class="title">{{ data?.bill }}</h1>
+      <button class="button" [routerLink]="['/cafe/bill']">Ver Contas</button>
+    </div>
+  </div>
+</section>
+
+<div class="wrapper sticky">
+  <nav class="navbar-fixed-top">
+    <a href="#" class="logo">
+      <mat-icon>storefront</mat-icon>
+      <span class="navbar-text">Cafe Management System</span>
+    </a>
+
+    <a href="#" class="burger-menu-icon" (click)="toggleMenu($event)">
+      <mat-icon>menu</mat-icon>
+    </a>
+
+    <ul class="burger-menu" [class.show]="isMenuOpen">
+      <li class="icon-text-burger-container">
+        <a class="login-button-navbar" (click)="changePassword()"
+          ><mat-icon>password</mat-icon>Mudar Senha</a
+        >
+      </li>
+      <li class="icon-text-burger-container">
+        <a class="signup-button-navbar" (click)="logout()"><mat-icon>exit_to_app</mat-icon>Logout</a>
+      </li>
+    </ul>
+
+  </nav>
+</div>
+
+<app-sidebar></app-sidebar>

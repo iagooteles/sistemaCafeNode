@@ -55,7 +55,7 @@ export class LoginComponent {
         this.ngxService.stop();
         this.dialogRef.close();
         localStorage.setItem('token', response.token);
-        this.router.navigate(['/cafe/dashboard'])
+        this.router.navigate(['/cafe/dashboard']);
       }),
       catchError((error) => {
         this.ngxService.stop();

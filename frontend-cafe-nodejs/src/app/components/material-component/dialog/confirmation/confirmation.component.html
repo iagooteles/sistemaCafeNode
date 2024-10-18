@@ -1,0 +1,8 @@
+<mat-dialog-content class="mat-typography">
+    <h5>Você quer mesmo {{ details.message }}?</h5>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button class="yes-button" mat-raised-button (click)="handleChangeAction()">Sim</button>
+    <button mat-raised-button mat-dialog-close>Não</button>
+</mat-dialog-actions>

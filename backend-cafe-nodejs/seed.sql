@@ -23,12 +23,12 @@ CREATE TABLE user(
 
 INSERT INTO user(name, contactNumber, email, password, status, role)
 VALUES
-    ('Admin', '123123123', 'admin@gmail.com', 'admin', 'true', 'admin'),
-    ('Cliente 1', '987654321', 'cliente1@gmail.com', 'cliente1', 'true', 'user'),
-    ('Cliente 2', '456789123', 'cliente2@gmail.com', 'cliente2', 'true', 'user'),
-    ('Cliente 3', '321654987', 'cliente3@gmail.com', 'cliente3', 'true', 'user'),
-    ('Cliente 4', '852963741', 'cliente4@gmail.com', 'cliente4', 'true', 'user'),
-    ('Cliente 5', '789456123', 'cliente5@gmail.com', 'cliente5', 'true', 'user');
+    ('Admin', '85958741452', 'admin@gmail.com', 'admin_cofe_node', 'true', 'admin'),
+    ('Cliente 1', '88925636985', 'cliente1@gmail.com', 'cliente1', 'true', 'user'),
+    ('Cliente 2', '88925899632', 'cliente2@gmail.com', 'cliente2', 'true', 'user'),
+    ('Cliente 3', '88936963636', 'cliente3@gmail.com', 'cliente3', 'true', 'user'),
+    ('Cliente 4', '85985633214', 'cliente4@gmail.com', 'cliente4', 'true', 'user'),
+    ('Cliente 5', '88999999999', 'cliente5@gmail.com', 'cliente5', 'true', 'user');
 
 
 
