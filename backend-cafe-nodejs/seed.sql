@@ -1,5 +1,7 @@
 -- Executar o SQL no docker
 -- $ docker exec -it backend-cafe-nodejs-mysql-1 mysql -u root -p
+-- OBS: Por algum motivo(?) o enconding não funciona direito se der seed direto do terminal! Será que tem como executar o seed diretamente do docker? Caso não, é necessário colocar diretamente do mysql workbench e popular por lá, ou começar com produtos vazios ou sem caracteres especiais! -- 
+
 
 USE cafenode;
 
@@ -31,22 +33,21 @@ VALUES
     ('Cliente 5', '88999999999', 'cliente5@gmail.com', 'cliente5', 'true', 'user');
 
 
-
 CREATE TABLE category(
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     PRIMARY KEY(id)
 );
 
-CREATE TABLE product(
+CREATE TABLE product (
     id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
+    name VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
     categoryId INT NOT NULL,
-    description VARCHAR(255),
+    description VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
     price DECIMAL(10, 2),
-    status VARCHAR(20),
-    PRIMARY KEY(id)
-);
+    status VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+    PRIMARY KEY (id)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE bill(
     id INT NOT NULL AUTO_INCREMENT,
@@ -69,7 +70,7 @@ INSERT INTO category(name) VALUES
     ('Salgados'),
     ('Lanches'),
     ('Sobremesas'),
-    ('Frutos do Mar'),
+    ('Milkshakes'),
     ('Carnes'),
     ('Massas'),
     ('Saladas');
@@ -82,7 +83,7 @@ INSERT INTO product(name, categoryId, description, price, status) VALUES
     ('Coxinha', 4, 'Tradicional salgado brasileiro', 3.00, 'Disponível'),
     ('Sanduíche Natural', 5, 'Sanduíche saudável com ingredientes frescos', 7.00, 'Disponível'),
     ('Pavê de Morango', 6, 'Sobremesa gelada de morango', 8.00, 'Disponível'),
-    ('Linguado Grelhado', 7, 'Peixe grelhado com temperos especiais', 25.00, 'Disponível'),
+    ('Milkshake de Morango', 7, 'Milkshake cremoso de morango', 12.00, 'Disponível'),
     ('Picanha na Brasa', 8, 'Deliciosa picanha grelhada', 30.00, 'Disponível'),
     ('Macarrão ao Alho e Óleo', 9, 'Simples e saboroso', 12.00, 'Disponível'),
     ('Salada Caesar', 10, 'Salada refrescante com frango grelhado', 15.00, 'Disponível'),
@@ -92,7 +93,7 @@ INSERT INTO product(name, categoryId, description, price, status) VALUES
     ('Pastel de Carne', 4, 'Delicioso pastel frito', 4.00, 'Disponível'),
     ('Wrap de Frango', 5, 'Wrap saudável com frango e legumes', 9.00, 'Disponível'),
     ('Torta de Limão', 3, 'Torta refrescante de limão', 7.00, 'Disponível'),
-    ('Filé de Salmão', 7, 'Salmão grelhado com ervas', 35.00, 'Disponível'),
+    ('Milkshake de Chocolate', 7, 'Milkshake de chocolate com cobertura', 12.00, 'Disponível'),
     ('Frango a Parmegiana', 8, 'Frango empanado com queijo', 28.00, 'Disponível'),
     ('Lasanha', 9, 'Lasanha de carne com queijo', 20.00, 'Disponível'),
     ('Salada de Frutas', 10, 'Frutas frescas da estação', 10.00, 'Disponível'),
@@ -102,7 +103,7 @@ INSERT INTO product(name, categoryId, description, price, status) VALUES
     ('Enroladinho de Salsicha', 4, 'Salgadinho enrolado', 3.50, 'Disponível'),
     ('Hambúrguer Gourmet', 5, 'Hambúrguer artesanal com ingredientes premium', 20.00, 'Disponível'),
     ('Mousse de Maracujá', 6, 'Sobremesa leve e refrescante', 5.00, 'Disponível'),
-    ('Risoto de Camarão', 7, 'Risoto cremoso de camarão', 28.00, 'Disponível'),
+    ('Milkshake de Baunilha', 7, 'Milkshake clássico de baunilha', 11.00, 'Disponível'),
     ('Costela ao Barbecue', 8, 'Costela suculenta com molho barbecue', 32.00, 'Disponível'),
     ('Espaguete à Carbonara', 9, 'Espaguete com molho cremoso', 18.00, 'Disponível'),
     ('Caesar Salad', 10, 'Salada clássica com alface e molho Caesar', 14.00, 'Disponível'),

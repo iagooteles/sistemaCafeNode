@@ -116,12 +116,12 @@ router.patch(
   authenticateToken,
   checkRole,
   (req, res, next) => {
-    const user = req.body;
+    const user = req.body;    
     const query = "update product set status = ? where id = ?";
 
     connection.query(query, [user.status, user.productId], (err, results) => {
       if (!err) {
-        if (results.affectedRows === 0) {
+        if (results.affectedRows === 0) {          
           return res.status(404).json({ message: "Product Id not found." });
         }
         return res

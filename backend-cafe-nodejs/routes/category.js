@@ -8,6 +8,7 @@ const router = Router();
 router.post("/add", authenticateToken, checkRole, (req, res, next) => {
     const category = req.body;
     const query = "insert into category (name) values(?)";
+    
     connection.query(query, [category.name], (err, results) => {
         if (!err) {
             return res.status(200).json({message: "Category Added Successfully"});
@@ -29,9 +30,10 @@ router.get("/get", authenticateToken, (req, res, next) => {
 router.patch("/update", authenticateToken, checkRole, (req, res, next) => {
     const product = req.body;
     const query = "update category set name=? where id=?";
+    
     connection.query(query, [product.name, product.id], (err, results) => {
         if (!err) {
-            if (results.affectedRows === 0) {
+            if (results.affectedRows === 0) {               
                 return res.status(404).json({message: "Category id not found."});
             } 
             return res.status(200).json({message: "Category updated successfully."})

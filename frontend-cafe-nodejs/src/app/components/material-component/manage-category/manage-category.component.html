@@ -1,0 +1,50 @@
+<section class="category-container">
+  <mat-card>
+    <b><h2>Categorias</h2></b>
+    <button
+      mat-flat-button
+      class="add-category-btn"
+      (click)="handleAddAction()"
+    >
+      Adicionar categoria
+    </button>
+  </mat-card>
+
+  <hr />
+
+  <mat-form-field appearance="fill">
+    <mat-label>Filtrar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input />
+  </mat-form-field>
+
+  <hr />
+
+  <div class="responsive-table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef="">Nome</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef="" class="align-end">Editar</th>
+        <td mat-cell *matCellDef="let element" class="action-link align-end">
+          <button
+            mat-icon-button
+            matToolTip="Edit"
+            (click)="handleEditAction(element)"
+          >
+            <mat-icon class="edit-icon">edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</section>
+
+<app-navbar></app-navbar>
+
+<app-sidebar></app-sidebar>

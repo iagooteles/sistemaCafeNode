@@ -11,7 +11,7 @@
 }
 
 .sidebar.open {
-  transform: translateX(0); /* Exibe a sidebar */
+  transform: translateX(0); 
 }
 
 mat-icon {
@@ -73,9 +73,8 @@ mat-list-item:hover {
 
 
 @media (max-width: 1200px) {
-  
-  .sidebar-item-container {
-    margin-top: 5rem;
+  .sidebar-item-container:first-child {
+    margin-top: 4rem;
   }
 
   .sidebar {
