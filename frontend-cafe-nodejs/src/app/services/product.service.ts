@@ -22,6 +22,18 @@ export class ProductService {
     });
   }
 
+  getProducts(): Observable<any>  {
+    return this.httpClient.get(`${this.url}/product/get`, { headers:this.getHeaders() });
+  }
+
+  getById(id:any) {
+    return this.httpClient.get(`${this.url}/product/getById/${id}`, { headers:this.getHeaders() });
+  }
+  
+  getProductsByCategory(id:any) {
+    return this.httpClient.get(`${this.url}/product/getByCategory/${id}`, { headers:this.getHeaders() });
+  }
+
   add(data:any) {
     return this.httpClient.post(`${this.url}/product/add`, data, { headers:this.getHeaders() });
   }
@@ -30,11 +42,7 @@ export class ProductService {
     return this.httpClient.patch(`${this.url}/product/update`, data, { headers:this.getHeaders() });
   }
 
-  getProducts(): Observable<any>  {
-    return this.httpClient.get(`${this.url}/product/get`, { headers:this.getHeaders() });
-  }
-
-  updateStatus(data:any) {
+  updateStatus(data:any) {    
     return this.httpClient.patch(`${this.url}/product/updateStatus`, data, { headers:this.getHeaders() });
   }
 

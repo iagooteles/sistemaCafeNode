@@ -95,7 +95,7 @@ export class ProductComponent implements OnInit {
     const data = {
       name: formData.name,
       categoryId: formData.categoryId,
-      price: formData.price,
+      price: parseFloat(formData.price.toString().replace(',', '.')),
       description: formData.description,
     };
   

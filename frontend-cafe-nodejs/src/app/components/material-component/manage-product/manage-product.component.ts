@@ -59,7 +59,7 @@ export class ManageProductComponent implements OnInit {
     this.productService.getProducts().subscribe({
       next: (response: any) => {        
         this.ngxService.stop();
-        this.dataSource = new MatTableDataSource(response);
+        this.dataSource = new MatTableDataSource(response);        
       },
       error: (error: any) => {
         this.ngxService.stop();
@@ -103,6 +103,7 @@ export class ManageProductComponent implements OnInit {
     this.router.events.subscribe(() => {
       dialogRef.close();
     })
+
     const sub = dialogRef.componentInstance.onEditProduct.subscribe((response) => {
       this.tableData();
     })
@@ -138,9 +139,9 @@ export class ManageProductComponent implements OnInit {
 
   }
 
-  handleUpdateStatus(status:any, id:any) {
+  handleUpdateStatus(disponivel:any, id:any) {
     const data = {
-      status: status.toString(),
+      disponivel: disponivel,
       productId: id
     }
 

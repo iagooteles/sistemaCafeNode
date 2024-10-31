@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import fs from "node:fs";
+import { log } from "node:console";
 
 const router = Router();
 
@@ -82,7 +83,7 @@ router.post("/generateReport", authenticateToken, (req, res) => {
   );
 });
 
-router.get("/getPdf", authenticateToken, (req, res) => {
+router.post("/getPdf", authenticateToken, (req, res) => {
   const orderDetails = req.body;
   const pdfPath = `./../generated_pdf/${orderDetails.uuid}.pdf`;
 
@@ -103,7 +104,6 @@ router.get("/getPdf", authenticateToken, (req, res) => {
         totalAmount: orderDetails.totalAmount,
       },
       (err, html) => {
-        console.log(productDetailsReport);
         if (err) {
           return res.status(500).json({
             message: "Aconteceu um erro. tente novamente mais tarde.",

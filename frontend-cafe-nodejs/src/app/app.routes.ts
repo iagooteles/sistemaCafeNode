@@ -4,6 +4,7 @@ import { RouteGuardService } from './services/route-guard.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManageCategoryComponent } from './components/material-component/manage-category/manage-category.component';
 import { ManageProductComponent } from './components/material-component/manage-product/manage-product.component';
+import { ManageOrderComponent } from './components/material-component/manage-order/manage-order.component';
 
 export const routes: Routes = [
   { path: 'cafe', component: HomeComponent },
@@ -31,6 +32,15 @@ export const routes: Routes = [
     canActivate:[RouteGuardService],
     data: {
         expectedRole:['admin']
+    }
+  },
+
+  {
+    path: 'cafe/order',
+    component: ManageOrderComponent,
+    canActivate:[RouteGuardService],
+    data: {
+        expectedRole:['admin', 'user']
     }
   },
 
