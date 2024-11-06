@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManageCategoryComponent } from './components/material-component/manage-category/manage-category.component';
 import { ManageProductComponent } from './components/material-component/manage-product/manage-product.component';
 import { ManageOrderComponent } from './components/material-component/manage-order/manage-order.component';
+import { ViewBillComponent } from './components/material-component/view-bill/view-bill.component';
 
 export const routes: Routes = [
   { path: 'cafe', component: HomeComponent },
@@ -38,6 +39,15 @@ export const routes: Routes = [
   {
     path: 'cafe/order',
     component: ManageOrderComponent,
+    canActivate:[RouteGuardService],
+    data: {
+        expectedRole:['admin', 'user']
+    }
+  },
+
+  {
+    path: 'cafe/bill',
+    component: ViewBillComponent,
     canActivate:[RouteGuardService],
     data: {
         expectedRole:['admin', 'user']

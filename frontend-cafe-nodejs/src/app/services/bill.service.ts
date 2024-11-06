@@ -26,6 +26,14 @@ export class BillService {
   }
 
   getPDF(data:any):Observable<Blob> {
-    return this.httpClient.post(`${this.url}/bill/getPdf`, data, {responseType: 'blob', headers:this.getHeaders() });
+    return this.httpClient.post(`${this.url}/bill/getPdf`, data, { responseType: 'blob', headers:this.getHeaders() });
+  }
+
+  getBills() {
+    return this.httpClient.get(`${this.url}/bill/getBills`, { headers:this.getHeaders() });
+  }
+
+  delete(id: any) {
+    return this.httpClient.delete(`${this.url}/bill/deleteBill/${id}`, { headers:this.getHeaders() });
   }
 }

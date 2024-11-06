@@ -91,7 +91,7 @@ router.post("/getPdf", authenticateToken, (req, res) => {
     res.contentType("application/pdf");
     fs.createReadStream(pdfPath).pipe(res);
   } else {
-    const productDetailsReport = JSON.parse(orderDetails.productDetails);
+    const productDetailsReport = orderDetails.productDetails;
 
     ejs.renderFile(
       path.join(__dirname, "../views", "report.ejs"),
@@ -148,16 +148,16 @@ router.delete("/deleteAllBills", authenticateToken, (req, res, next) => {
   connection.query(query, (err, results) => {
     if (!err) {
       if (results.affectedRows === 0) {
-        return res.status(404).json({ message: "Bill id not found." });
+        return res.status(404).json({ message: "ID da conta não encontrado." });
       }
       return res
         .status(200)
-        .json({ message: "All Bills deleted successfully!", results });
+        .json({ message: "Todas as contas deletadas com sucesso!", results });
     }
 
     return res
       .status(500)
-      .json({ message: "Could not delete bill, try again later!", err });
+      .json({ message: "Conta não deletada, tente novamente mais tarde!", err });
   });
 });
 
@@ -169,16 +169,16 @@ router.delete("/deleteBill/:id", authenticateToken, (req, res, next) => {
   connection.query(query, [id], (err, results) => {
     if (!err) {
       if (results.affectedRows === 0) {
-        return res.status(404).json({ message: "Bill id not found." });
+        return res.status(404).json({ message: "ID da conta não encontrado." });
       }
       return res
         .status(200)
-        .json({ message: "Bill deleted successfully!", results });
+        .json({ message: "Conta deletada com sucesso!", results });
     }
 
     return res
       .status(500)
-      .json({ message: "Could not delete bill, try again later!", err });
+      .json({ message: "Conta não deletada, tente novamente mais tarde!", err });
   });
 });
 

@@ -14,7 +14,18 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @Component({
   selector: 'app-change-password',
   standalone: true,
-  imports: [MatToolbarModule, MatDialogModule, MatFormField, MatFormFieldModule, MatLabel, MatError, ReactiveFormsModule, NgIf, MatInputModule, FlexLayoutModule],
+  imports: [
+    MatToolbarModule, 
+    MatDialogModule, 
+    MatFormField, 
+    MatFormFieldModule, 
+    MatLabel, 
+    MatError, 
+    ReactiveFormsModule, 
+    NgIf, 
+    MatInputModule, 
+    FlexLayoutModule
+  ],
   templateUrl: './change-password.component.html',
   styleUrl: './change-password.component.scss'
 })
@@ -70,5 +81,4 @@ export class ChangePasswordComponent {
       }
     });
   }
-
 }

@@ -1,4 +1,4 @@
-.product-container {
+.view-bill-container {
   padding-top: 10em;
   display: flex;
   flex-direction: column;
@@ -27,10 +27,6 @@ mat-card .add-product-btn {
   transition: all 0.2s ease-in-out;
 }
 
-mat-card .add-product-btn:hover {
-  background-color: #913294;
-}
-
 mat-form-field {
   width: 865px;
   margin-top: 10px;
@@ -49,10 +45,6 @@ mat-form-field {
 }
 
 mat-icon {
-    color: #913294;
-}
-
-.edit-icon {
   color: #913294;
 }
 
