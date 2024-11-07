@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from "uuid";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import fs from "node:fs";
-import { log } from "node:console";
 
 const router = Router();
 
@@ -35,17 +34,20 @@ router.post("/generateReport", authenticateToken, (req, res) => {
       res.locals.email,
     ],
     (err, results) => {
-      if (err) {
+      if (err) {    
         return res.status(500).json({
           message: "Aconteceu um erro. tente novamente mais tarde.",
           erro: err,
         });
       }
+      const productDetailsReport = Array.isArray(orderDetails.productDetails) 
+      ? orderDetails.productDetails 
+      : [orderDetails.productDetails];
 
       ejs.renderFile(
         path.join(__dirname, "../views", "report.ejs"),
         {
-          productDetails: productDetailsReport,
+          productDetailsReport,
           name: orderDetails.name,
           email: orderDetails.email,
           contactNumber: orderDetails.contactNumber,
@@ -91,12 +93,14 @@ router.post("/getPdf", authenticateToken, (req, res) => {
     res.contentType("application/pdf");
     fs.createReadStream(pdfPath).pipe(res);
   } else {
-    const productDetailsReport = orderDetails.productDetails;
+    const productDetailsReport = Array.isArray(orderDetails.productDetails) 
+    ? orderDetails.productDetails 
+    : [orderDetails.productDetails];
 
     ejs.renderFile(
       path.join(__dirname, "../views", "report.ejs"),
       {
-        productDetails: productDetailsReport,
+        productDetailsReport,
         name: orderDetails.name,
         email: orderDetails.email,
         contactNumber: orderDetails.contactNumber,
