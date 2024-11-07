@@ -136,7 +136,6 @@ export class ManageProductComponent implements OnInit {
         this.snackbarService.openSnackBar(this.responseMessage, "error");
       }
     });
-
   }
 
   handleUpdateStatus(disponivel:any, id:any) {

@@ -86,7 +86,7 @@ docker-compose up -d
 docker exec -it backend-cafe-nodejs-mysql-1 mysql -u root -p
 ```
 
-3. Execute o seed.sql para criar e popular as tabelas necessárias:
+3. Execute o seed.sql para criar e popular as tabelas necessárias, ou utilize as queries diretamente em uma plataforma como o MySQL Workbench:
 ```bash
 docker exec -i backend-cafe-nodejs-mysql-1 mysql -u root -p'(SUA_SENHA_DEFINIDA_NO_ARQUIVO_.ENV_AQUI || root_password)' < seed.sql
 ```
@@ -97,3 +97,5 @@ Para iniciar o servidor, use o comando:
 ```bash
 npm start
 ```
+
+4. Com o servidor rodando, você pode executar as instruções na pasta do frontend.

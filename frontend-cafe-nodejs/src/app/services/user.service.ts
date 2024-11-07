@@ -11,22 +11,24 @@ export class UserService {
   
   constructor(private httpClient:HttpClient) { }
 
-  signup(data:any) {
-    return this.httpClient.post(`${this.url}/user/signup`, data, {
-      headers: new HttpHeaders().set('Content-Type', 'application/json')
+  private getHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token') || '';
+    return new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json; charset=UTF-8'
     });
   }
 
+  signup(data:any) {
+    return this.httpClient.post(`${this.url}/user/signup`, data, { headers:this.getHeaders()});
+  }
+
   forgotPassword(data:any) {
-    return this.httpClient.post(`${this.url}/user/forgotPassword`, data , {
-      headers: new HttpHeaders().set('Content-Type', 'application/json')
-    })
+    return this.httpClient.post(`${this.url}/user/forgotPassword`, data , { headers:this.getHeaders()})
   }
 
   login(data:any) {
-    return this.httpClient.post(`${this.url}/user/login`, data, {
-      headers: new HttpHeaders().set('Content-Type', 'application/json')
-    })
+    return this.httpClient.post(`${this.url}/user/login`, data, { headers:this.getHeaders()})
   }
 
   checkToken() {
@@ -35,11 +37,15 @@ export class UserService {
 
   changePassword(data: any) {
     const token = localStorage.getItem('token');
-    return this.httpClient.post(`${this.url}/user/changePassword`, data, {
-      headers: new HttpHeaders()
-        .set('Content-Type', 'application/json')
-        .set('Authorization', `Bearer ${token}`)
-    });
+    return this.httpClient.post(`${this.url}/user/changePassword`, data, { headers:this.getHeaders()});
+  }
+
+  getUsers() {
+    return this.httpClient.get(`${this.url}/user/get`, { headers:this.getHeaders()})
+  }
+
+  update(data: any) {
+    return this.httpClient.patch(`${this.url}/user/update`, data, { headers:this.getHeaders()})
   }
 
 }

@@ -21,6 +21,15 @@ Antes de começar, certifique-se de ter o seguinte instalado:
 
 Recomenda-se executar o backend primeiro e depois o frontend, nas pastas específicas para os mesmos você encontrará instruções de como executar.
 
+### Instalação 
 
-### Front end em construção!
+1. Clone este repositório:
+```bash
+git clone https://github.com/iagooteles/sistemaCafeNode.git
+```
 
+2. Entre na pasta do backend e siga as intruções do seu README.
+
+3. Após ajustar o backend, entre na pasta do frontend e siga suas instruções.
+
+4. Após executar o frontend, a aplicação estará disponível em: 'http://localhost:4200'.
